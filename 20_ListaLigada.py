@@ -61,6 +61,23 @@ class List:
                 break
             itr = itr.next
             count += 1
+
+        def remove_at(self,index):
+            if index == 0:
+                self.head = self.head.next
+                return
+            
+            count = 0
+            itr = self.head
+
+            while itr:
+                if count == index-1:
+                    itr.next = itr.next.next
+                    break
+                itr = itr.next
+                count +=1
+            
+            pass
         
 uno = List()
 uno.print()
