@@ -47,10 +47,20 @@ class List:
         
         
     def insert_at(self,index,data):
-        itr = self.head 
-        #if index == 0:
-            #insert_beging(data)
+        if index == 0:
+            self.insert_beging(data)
+            return
+
+        itr = self.head
+        count = 0
         
+        while itr:
+            if count == index-1:
+                node = Node(data,itr.next)
+                itr.next = node
+                break
+            itr = itr.next
+            count += 1
         
 uno = List()
 uno.print()
