@@ -62,22 +62,26 @@ class List:
             itr = itr.next
             count += 1
 
-        def remove_at(self,index):
-            if index == 0:
-                self.head = self.head.next
-                return
+    def remove_at(self,index):
+        if index == 0:
+            self.head = self.head.next
+            return
+        
+        count = 0
+        itr = self.head
+        while itr:
+            if count == index-1:
+                itr.next = itr.next.next
+                break
+            itr = itr.next
+            count +=1            
             
-            count = 0
-            itr = self.head
 
-            while itr:
-                if count == index-1:
-                    itr.next = itr.next.next
-                    break
-                itr = itr.next
-                count +=1
-            
-            pass
+    def insert_values(self,data_list):
+        self.head = None 
+
+        for data in data_list:
+            self.insert_end(data)
         
 uno = List()
 uno.print()
@@ -89,3 +93,5 @@ uno.insert_beging(0)
 uno.insert_beging(0)
 uno.print()
 uno.tamaño()
+uno.remove_at(5)
+uno.print()
