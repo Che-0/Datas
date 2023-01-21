@@ -11,49 +11,19 @@ class DLinkedList:
     def __init__(self):
         self.head = None
 
-    def insert_beginning(self,data):
-        if self.head == None:
-            self.head = Node(data,None,None)
-        else:
-            self.head = Node(data,self.head,None)
-    
-    def insert_end(self,data):
+    def print_Normal(self):
+        if self.head is None:
+            print("Empty")
+            return
         
         itr = self.head
-
-        while itr.next:
-            itr = itr.next
-        
-        itr.next = Node(data,None,itr)
-
-    def print(self):
-
-        itr = self.head
-        lis = ''
+        lst = ''
 
         while itr:
-            lis += str(itr.data) + '-->' if itr.next else str(itr.data)
+            lst += str(itr.data) + "-->" 
             itr = itr.next
-        print(lis)
-
-    def print_reverse(self):
-        itr = self.head
-        lis = []
-
-        #while itr:
-        #    itr = itr.next
-        
-        while itr:
-            lis += str(itr.data) + '-->' if itr.prev else str(itr.data)
-            itr = itr.prev
-        print(lis)
-
+        print(lst)
 
 
 uno = DLinkedList()
-uno.insert_beginning(4)
-uno.insert_beginning(6)
-uno.insert_beginning(8)
-
-uno.print()
-uno.print_reverse()
+uno.print_Normal()
